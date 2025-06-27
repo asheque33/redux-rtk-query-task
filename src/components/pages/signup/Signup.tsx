@@ -51,7 +51,8 @@ const Signup = () => {
           email: formData.email,
           password: formData.password,
         }).unwrap();
-        navigate('/login');
+        dispatch(setCredentials(result));
+        navigate('/verificationCode');
         toast.success(result.message);
       } catch (err) {
         toast.error(
