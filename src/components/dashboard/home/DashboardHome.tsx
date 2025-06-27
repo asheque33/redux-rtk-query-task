@@ -1,5 +1,4 @@
 import Header from '@/components/shared/Header';
-import { useGetUserProfileQuery } from '@/redux/features/user/userApi';
 import { useState } from 'react';
 
 const tabs = [
@@ -9,8 +8,6 @@ const tabs = [
   { id: 'Validify', label: 'Validify' },
 ];
 const DashboardHome = () => {
-  const { data, isFetching } = useGetUserProfileQuery(undefined);
-  console.log(data, 'dashboard home get profile');
   const [activeTab, setActiveTab] = useState('Chartwright');
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');

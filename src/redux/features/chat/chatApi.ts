@@ -38,4 +38,4 @@ export const chatApi = baseApi.injectEndpoints({
     }),
   })
 });
-export const { useCreateChatMutation, useAddMessageToChatMutation, useGetSingleChatQuery } = chatApi;
+export const { useCreateChatMutation, useAddMessageToChatMutation, useGetUsersChatListQuery, useGetSingleChatQuery } = chatApi;

@@ -1,8 +1,11 @@
+import { useGetAllInvitedUsersQuery } from '@/redux/features/company/CUserManagementApi';
 import React, { useState } from 'react';
 
 const UserManagement = () => {
   const [email, setEmail] = useState('');
   const [users, setUsers] = useState([]);
+  const { data: invitedUsers, isFetching } =
+    useGetAllInvitedUsersQuery(undefined);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -110,12 +113,12 @@ const UserManagement = () => {
             <div className='bg-white dark:bg-gray-700 rounded-lg overflow-hidden'>
               <div className='px-6 py-4 bg-gray-50 dark:bg-gray-600 border-b dark:border-gray-500'>
                 <h2 className='text-lg font-semibold text-gray-900 dark:text-white'>
-                  Invited Users ({users.length})
+                  Invited Users ({invitedUsers.length})
                 </h2>
               </div>
 
               <div className='divide-y divide-gray-200 dark:divide-gray-600'>
-                {users.map((user) => (
+                {invitedUsers.map((user) => (
                   <div
                     key={user.id}
                     className='px-6 py-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors'

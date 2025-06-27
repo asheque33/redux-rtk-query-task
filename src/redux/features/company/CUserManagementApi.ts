@@ -1,6 +1,6 @@
 import { baseApi } from "@/redux/api/baseApi";
 
-export const companyApi = baseApi.injectEndpoints({
+export const companyUserManagementApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     // Add User
     addUser: builder.mutation({
@@ -22,4 +22,4 @@ export const companyApi = baseApi.injectEndpoints({
     }),
   })
 });
-export const { useAddUserMutation, useGetAllInvitedUsersQuery } = companyApi;
+export const { useAddUserMutation, useGetAllInvitedUsersQuery } = companyUserManagementApi;

@@ -4,13 +4,12 @@ import MainContent from '../dashboard/main/MainContent';
 import HistorySection from '../dashboard/history/HistorySection';
 import Header from '../shared/Header';
 import { Outlet } from 'react-router-dom';
-// import ChatInput from "../dashboard/chat/ChatInput";
-// import ChatInterface from "../dashboard/chat/ChatInterface";
-// import History from "../dashboard/history/HistorySection";
-// import Header from "../shared/Header";
-// import SideBar from "../shared/SideBar";
+import { useGetUserProfileQuery } from '@/redux/features/user/userApi';
+import { useGetUsersChatListQuery } from '@/redux/features/chat/chatApi';
 
 const DashboardLayout = () => {
+  const { data: userProfile, isFetching } = useGetUserProfileQuery(undefined);
+  const { data: chatList } = useGetUsersChatListQuery(undefined);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
