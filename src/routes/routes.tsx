@@ -11,6 +11,7 @@ import ManageSubscription from '@/components/pages/subscription/ManageSubscripti
 import EditProfile from '@/components/pages/EditProfile';
 import VerificationCode from '@/components/pages/verification_code/VerificationCode';
 import ProtectedRoute from '@/components/shared/ProtectedRoute';
+import StripeCheckout from '@/components/pages/stripe/StripeCheckout';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         element: <FAQWithToggle />,
       },
     ],
+  },
+  {
+    path: '/checkout/stripe',
+    element: <StripeCheckout />,
   },
   {
     path: '/signUp',

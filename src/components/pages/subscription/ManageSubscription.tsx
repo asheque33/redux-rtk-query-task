@@ -1,7 +1,9 @@
+import SubscriptionModal from '@/components/subscription/SubscriptionModal';
 import React, { useState } from 'react';
 
 const ManageSubscription = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className={`${isDarkMode ? 'dark' : ''} font-montserrat`}>
@@ -32,9 +34,14 @@ const ManageSubscription = () => {
                   />
                 </div>
               </div>
-
+              {showModal && (
+                <SubscriptionModal onClose={() => setShowModal(false)} />
+              )}
               <div className='mt-8 grid grid-cols-2 gap-6'>
-                <button className='py-4 px-6 bg-green-500 text-white rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors dark:bg-green-600 dark:hover:bg-green-700'>
+                <button
+                  onClick={() => setShowModal(true)}
+                  className='py-4 px-6 bg-green-500 text-white rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors dark:bg-green-600 dark:hover:bg-green-700'
+                >
                   Upgrade Subscription
                 </button>
 
